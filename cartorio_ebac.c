@@ -160,6 +160,7 @@ int main()
 		printf("\t1 - Matricular novo usuário \n");
 		printf("\t2 - Consultar número de matrícula \n");
 		printf("\t3 - Apagar usuário \n\n");
+		printf("\t4 - Deseja sair do sistema? \n\n");
 
 		printf("Opção: ");	// encerramento do menu
 
@@ -180,6 +181,11 @@ int main()
 			case 3:
 			deletar_cadastro();
 			break;
+
+			case 4:
+            printf("Saindo do sistema. Obrigado por utilizar o Cartório EBAC!! \n");
+            return 0;       // finaliza o programa...
+            break;
 
 			default:
 			printf("Essa opção não está disponível. Escolha uma opção válida do menu. \n");

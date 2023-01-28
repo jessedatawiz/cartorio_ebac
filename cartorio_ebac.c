@@ -148,48 +148,66 @@ int main()
 	int opcao = 0;		// Definindo a variável de escolha do menu
 	int count = 1;		// contador para controle do loop for
 
-	for(count = 1; count = 1;)	// garante a permanência do usuario na tela
-	{
+	char senhadigitada[10] = "a";      // inicia a variável senhadigitada
+    int comparacao = 0;     // variável que irá comparar se a senha fornecidada é válida
 
-        system("clear");		// limpa a tela após a escolha do usuário
+    // inicia a tela de login
+    printf("#### Cartório da EBAC #### \n\n");
+	printf("Login de administrador! \n\n");
 
-		setlocale(LC_ALL, "Portuguese");	//  necessário para incluir os caracteres especiais do português
+	printf("Digite a senha: \n");
+	scanf("%s", senhadigitada);
 
-		printf("#### Cartório da EBAC #### \n\n");
-		printf("Escolha a opção desejada do menu: \n\n");
-		printf("\t1 - Matricular novo usuário \n");
-		printf("\t2 - Consultar número de matrícula \n");
-		printf("\t3 - Apagar usuário \n\n");
-		printf("\t4 - Deseja sair do sistema? \n\n");
+	comparacao = strcmp(senhadigitada, "admin");
 
-		printf("Opção: ");	// encerramento do menu
+	if (comparacao == 0)        // a função strcmp retorna o valor '0' se a senhadigitada for igual a "admin"
+        {
 
-		scanf("%d", &opcao);	// armazenando a escolha do usuário
+        for(count = 1; count = 1;)	// garante a permanência do usuario na tela
+        {
 
-		system("clear");		// limpa a tela apção a escolha do usuário
+            system("clear");		// limpa a tela após a escolha do usuário
 
-		switch(opcao)
-		{
-			case 1:
-			registrar_cadastro();
-			break;
+            setlocale(LC_ALL, "Portuguese");	//  necessário para incluir os caracteres especiais do português
 
-			case 2:
-			consultar_cadastro();
-			break;
+            printf("#### Cartório da EBAC #### \n\n");
+            printf("Escolha a opção desejada do menu: \n\n");
+            printf("\t1 - Matricular novo usuário \n");
+            printf("\t2 - Consultar número de matrícula \n");
+            printf("\t3 - Apagar usuário \n\n");
+            printf("\t4 - Deseja sair do sistema? \n\n");
 
-			case 3:
-			deletar_cadastro();
-			break;
+            printf("Opção: ");	// encerramento do menu
 
-			case 4:
-            printf("Saindo do sistema. Obrigado por utilizar o Cartório EBAC!! \n");
-            return 0;       // finaliza o programa...
-            break;
+            scanf("%d", &opcao);	// armazenando a escolha do usuário
 
-			default:
-			printf("Essa opção não está disponível. Escolha uma opção válida do menu. \n");
-			break;
-		}
-	}
+            system("clear");		// limpa a tela apção a escolha do usuário
+
+            switch(opcao)
+            {
+                case 1:
+                registrar_cadastro();
+                break;
+
+                case 2:
+                consultar_cadastro();
+                break;
+
+                case 3:
+                deletar_cadastro();
+                break;
+
+                case 4:
+                printf("Saindo do sistema. Obrigado por utilizar o Cartório EBAC!! \n");
+                return 0;       // finaliza o programa...
+                break;
+
+                default:
+                printf("Essa opção não está disponível. Escolha uma opção válida do menu. \n");
+                break;
+            }
+        }
+    }
+    else
+        printf("Senha incorreta!")
 }
